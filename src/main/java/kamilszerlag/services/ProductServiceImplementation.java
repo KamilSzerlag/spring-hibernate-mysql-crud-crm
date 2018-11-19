@@ -16,13 +16,13 @@ public class ProductServiceImplementation implements ProductService {
     private ProductDAO productDAO;
 
     @Override
-    @Transactional(readOnly = true, propagation = Propagation.NOT_SUPPORTED)
+    @Transactional
     public List<Product> getProductList() {
         return productDAO.getProductList();
     }
 
     @Override
-    @Transactional(readOnly = true)
+    @Transactional
     public void saveProduct(Product product) {
         productDAO.saveProduct(product);
     }

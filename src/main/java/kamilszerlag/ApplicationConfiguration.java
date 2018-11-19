@@ -71,10 +71,14 @@ public class ApplicationConfiguration extends WebMvcConfigurerAdapter {
     }
 
     @Bean
-    public PlatformTransactionManager txManager() {
-        HibernateTransactionManager hibernateTransactionManager = new HibernateTransactionManager();
-        hibernateTransactionManager.setSessionFactory(sessionFactory().getObject());
-        return new DataSourceTransactionManager(myDataSource());
+    @Autowired
+    public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
+
+        // setup transaction manager based on session factory
+        HibernateTransactionManager txManager = new HibernateTransactionManager();
+        txManager.setSessionFactory(sessionFactory);
+
+        return txManager;
     }
 
 
