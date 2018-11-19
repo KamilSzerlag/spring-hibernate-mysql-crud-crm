@@ -22,16 +22,19 @@ public class ProductServiceImplementation implements ProductService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public void saveProduct(Product product) {
         productDAO.saveProduct(product);
     }
 
     @Override
+    @Transactional
     public void deleteProduct(int id){
         productDAO.deleteProduct(id);
     }
 
     @Override
+    @Transactional
     public Product getProduct(int id) {
        return productDAO.getProduct(id);
     }

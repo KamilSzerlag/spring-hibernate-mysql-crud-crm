@@ -15,6 +15,8 @@
         ${product.getProduct_name()}<br>
     </core:forEach>
 </head>
+<input type="button" value="Add Product"
+       onclick="window.location.href='showAddProduct'; return false;"
 <body>
 
 </body>
