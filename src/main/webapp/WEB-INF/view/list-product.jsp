@@ -11,9 +11,39 @@
 <head>
     <title>Work</title>
     <h3>HELLO SPRING!</h3>
+    <table>
+        <tr>
+            <th>
+                NAME:
+            </th>
+            <th>
+                COUNT:
+            </th>
+            <th>
+                PRICE:
+            </th>
+            <th>
+                MANUFACTURER:
+            </th>
+        </tr>
     <core:forEach var="product" items="${productList}">
-        ${product.getProduct_name()}<br>
+            <tr>
+            <td>
+                ${product.getProduct_name()}
+            </td>
+            <td>
+                    ${product.getCount()}
+            </td>
+            <td>
+                    ${product.getManufacturer()}
+            </td>
+            <td>
+                    ${product.getPrice()}
+            </td>
+            </tr>
+
     </core:forEach>
+    </table>
 </head>
 <input type="button" value="Add Product"
        onclick="window.location.href='showAddProduct'; return false;"
